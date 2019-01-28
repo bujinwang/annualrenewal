@@ -11,6 +11,9 @@ backend:
         - >-
           envCache --set stackInfo "$(amplify env get --json --name
           $AWS_BRANCH)"
+    postBuild:
+      commands:
+        - aws dynamodb create-table --cli-input-json file://create-table-movies.json
 frontend:
   phases:
     preBuild:
