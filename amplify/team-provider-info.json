@@ -1,0 +1,14 @@
+{
+    "NONE": {
+        "awscloudformation": {
+            "AuthRoleName": "annualrenewal-20190125154201-authRole",
+            "UnauthRoleArn": "arn:aws:iam::858605029907:role/annualrenewal-20190125154201-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::858605029907:role/annualrenewal-20190125154201-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "annualrenewal-20190125154201-deployment",
+            "UnauthRoleName": "annualrenewal-20190125154201-unauthRole",
+            "StackName": "annualrenewal-20190125154201",
+            "StackId": "arn:aws:cloudformation:us-west-2:858605029907:stack/annualrenewal-20190125154201/6e24f100-20f2-11e9-b889-0a8dbb6069d0"
+        }
+    }
+}

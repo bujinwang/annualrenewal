@@ -1,0 +1,7 @@
+{
+    "AppSyncApiName": "annualrenewal",
+    "schemaGraphql": "s3://annualrenewal-20190125154201-deployment/amplify-appsync-files/schema.graphql.1548712232344",
+    "ResolverBucket": "annualrenewal-20190125154201-deployment",
+    "ResolverRootKey": "amplify-appsync-files",
+    "DeploymentTimestamp": "1548712232344"
+}

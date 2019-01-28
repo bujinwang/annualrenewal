@@ -1,0 +1,119 @@
+type ProfileTxn {
+  RENEWALDATE: Int!
+  PFID: String!
+  PLATE: String
+  MID: String!
+  version: Int!
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+type ModelProfileTxnConnection {
+  items: [ProfileTxn]
+  nextToken: String
+}
+
+input ModelStringFilterInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+}
+
+input ModelIDFilterInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+}
+
+input ModelIntFilterInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  contains: Int
+  notContains: Int
+  between: [Int]
+}
+
+input ModelFloatFilterInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  contains: Float
+  notContains: Float
+  between: [Float]
+}
+
+input ModelBooleanFilterInput {
+  ne: Boolean
+  eq: Boolean
+}
+
+input ModelProfileTxnFilterInput {
+  RENEWALDATE: ModelIntFilterInput
+  PFID: ModelStringFilterInput
+  PLATE: ModelStringFilterInput
+  MID: ModelStringFilterInput
+  and: [ModelProfileTxnFilterInput]
+  or: [ModelProfileTxnFilterInput]
+  not: ModelProfileTxnFilterInput
+}
+
+type Query {
+  getProfileTxn(id: ID!): ProfileTxn
+  listProleTxns(filter: ModelProfileTxnFilterInput, limit: Int, nextToken: String): ModelProfileTxnConnection
+}
+
+input CreateProfileTxnInput {
+  RENEWALDATE: Int!
+  PFID: String!
+  PLATE: String
+  MID: String!
+}
+
+input UpdateProfileTxnInput {
+  RENEWALDATE: Int
+  PFID: String
+  PLATE: String
+  MID: String
+  expectedVersion: Int!
+}
+
+input DeleteProfileTxnInput {
+  id: ID
+  expectedVersion: Int!
+}
+
+type Mutation {
+  createProfileTxn(input: CreateProfileTxnInput!): ProfileTxn
+  updateProfileTxn(input: UpdateProfileTxnInput!): ProfileTxn
+  deleteProfileTxn(input: DeleteProfileTxnInput!): ProfileTxn
+}
+
+type Subscription {
+  onCreateProfileTxn: ProfileTxn @aws_subscribe(mutations: ["createProfileTxn"])
+  onUpdateProfileTxn: ProfileTxn @aws_subscribe(mutations: ["updateProfileTxn"])
+  onDeleteProfileTxn: ProfileTxn @aws_subscribe(mutations: ["deleteProfileTxn"])
+}

@@ -1,0 +1,6 @@
+type ProfileTxn @model(queries: {list:"listProleTxns", get:"getProfileTxn"}) @versioned {
+    RENEWALDATE: Int!
+    PFID: String!
+    PLATE: String
+    MID: String!
+    }
