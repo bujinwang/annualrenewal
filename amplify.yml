@@ -1,0 +1,19 @@
+version: 0.1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - yarn install
+    build:
+      commands:
+        - yarn run build
+  postBuild:
+    commands:
+      - aws dynamodb create-table --cli-input-json file://create-table-movies.json
+  artifacts:
+    baseDirectory: build
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
